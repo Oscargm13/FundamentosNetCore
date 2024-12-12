@@ -21,7 +21,7 @@ namespace FundamentosNetCore
         {
             int x = int.Parse(this.txtPosicionX.Text);
             int y = int.Parse(this.txtPosicionY.Text);
-
+            
             this.btnCambiarPosicion.Location = new Point(x, y);
         }
 
@@ -30,8 +30,27 @@ namespace FundamentosNetCore
             int Rojo = int.Parse(this.txtRojo.Text);
             int Verde = int.Parse(this.txtVerde.Text);
             int Azul = int.Parse(this.txtAzul.Text);
-
-            this.BackColor = Color.FromArgb(Rojo, Verde, Azul);
+            if (Rojo > 255 || Rojo < 0)
+            {
+                MessageBox.Show(
+                    "El valor de rojo tiene que estar entre 0 y 255"
+                    );
+            }
+            else if (Verde > 255 || Verde < 0)
+            {
+                MessageBox.Show(
+                    "El valor de Verde tiene que estar entre 0 y 255"
+                    );
+            }else if (Azul > 255 || Azul < 0)
+            {
+                MessageBox.Show(
+                    "El valor de Azul tiene que estar entre 0 y 255"
+                    );
+            }else
+            {
+                this.BackColor = Color.FromArgb(Rojo, Verde, Azul);
+            }
+            
         }
     }
 }
