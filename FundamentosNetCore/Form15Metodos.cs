@@ -47,10 +47,33 @@ namespace FundamentosNetCore
 
         private void btnDobleReferencia_Click(object sender, EventArgs e)
         {
-            int numero = int.Parse(this.textBox1.Text);
-            this.GetDobleReferencia(ref numero);
-            this.lblResultado.Text = numero.ToString();
+            //int numero = int.Parse(this.textBox1.Text);
+            //this.GetDobleReferencia(ref numero);
+            //this.lblResultado.Text = numero.ToString();
 
+        }
+
+        private void lblRaton_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.lblRaton.Text = "X: " + e.X + ", Y: " + e.Y;
+        }
+
+        private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char teclaBorrar = (char)Keys.Back;
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != teclaBorrar)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSoloLetras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char teclaBorrar = (char)Keys.Back;
+            if (char.IsLetter(e.KeyChar) == false && e.KeyChar != teclaBorrar)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
